@@ -8,7 +8,7 @@ A Variation Of Philip Klauzinski's excellent jscroll Plugin (<a href="http://jsc
 You can find a simple working example in the example/ folder. The parameters you can define are:
 
 <b>autoTrigger</b>: true or false for loading automatically or by clicking a button<br />
-<b>maxPages</b>: if i want to get to the footer i need to define a maximum page number<br />
+<b>maxPages</b>: if you want to get to the footer you need to define a maximum page number<br />
 <b>loadingHtml</b>: html to show while loading the next content<br />
 <b>loadingSpeed</b>: you can delay the loading (most likely for testing purposes)<br />
 <b>contentSelector</b>: selector for loading only part of the response<br />
