@@ -7,12 +7,12 @@ A Variation Of Philip Klauzinski's excellent jscroll Plugin (<a href="http://jsc
 
 You can find a simple working example in the example/ folder. The parameters you can define are:
 
-<b>autoTrigger</b>: true or false for loading automatically or by clicking a button
-<b>maxPages</b>: if i want to get to the footer i need to define a maximum page number
-<b>loadingHtml</b>: html to show while loading the next content
-<b>loadingSpeed</b>: you can delay the loading (most likely for testing purposes)
-<b>contentSelector</b>: selector for loading only part of the response
-<b>nextSelector</b>: selector to find the link which contains the href pointing to the next set of content
-<b>footerSelector</b>: footer selector
-<b>footerPadding</b>: the distance from the footer at which to trigger the loading of the next set of content
-<b>callback</b>: callback to be called at the end of each page load
+<b>autoTrigger</b>: true or false for loading automatically or by clicking a button<br />
+<b>maxPages</b>: if i want to get to the footer i need to define a maximum page number<br />
+<b>loadingHtml</b>: html to show while loading the next content<br />
+<b>loadingSpeed</b>: you can delay the loading (most likely for testing purposes)<br />
+<b>contentSelector</b>: selector for loading only part of the response<br />
+<b>nextSelector</b>: selector to find the link which contains the href pointing to the next set of content<br />
+<b>footerSelector</b>: footer selector<br />
+<b>footerPadding</b>: the distance from the footer at which to trigger the loading of the next set of content<br />
+<b>callback</b>: callback to be called at the end of each page load<br />
