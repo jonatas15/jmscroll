@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>j(m)scroll Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+  <style>
+    div {
+      width:510px;
+      margin:0 auto;
+      text-align:justify;
+      padding-top:20px;
+    }
+    img {
+      float:left;
+      padding:10px 0 0 10px;
+    }
+    .scroll-loading {
+      text-align:center;
+    }
+    .scroll-loading img {
+      float:none;
+    }
+  </style>
+</head>
+<body>
+  <div data-role="page" data-theme="a">
+    <div data-role="header" data-position="fixed" data-theme="b">
+      <h1>j(m)scroll Example</h1>
+    </div>
+    <div data-role="content" class="content">
+      <p class="item">
+	Lorem ipsum dolor sit amet, at ius affert causae utroque. Semper iuvaret cum te. Utamur prompta pro no, pro ut fabellas torquatos. 
+	Te viderer invenire eum, duo definiebas disputationi ad. Ut pri admodum ponderum pertinax, facer minimum legendos vim id. Aeque verear 
+	reprehendunt an eam. Eos ea alia oblique, cu cum erat option. Has ut atqui verear voluptua, mel erat cetero repudiare ei, mel cu augue 
+	principes. Exerci doming reprimique ne duo. Noluisse abhorreant id eam, mei porro integre appetere an. Ius cu placerat erroribus salutatus.
+      </p>
+      <p class="item">
+	Lorem ipsum dolor sit amet, at ius affert causae utroque. Semper iuvaret cum te. Utamur prompta pro no, pro ut fabellas torquatos. 
+	Te viderer invenire eum, duo definiebas disputationi ad. Ut pri admodum ponderum pertinax, facer minimum legendos vim id. Aeque verear 
+	reprehendunt an eam. Eos ea alia oblique, cu cum erat option. Has ut atqui verear voluptua, mel erat cetero repudiare ei, mel cu augue 
+	principes. Exerci doming reprimique ne duo. Noluisse abhorreant id eam, mei porro integre appetere an. Ius cu placerat erroribus salutatus.
+      </p>
+      <p class="item">
+	Lorem ipsum dolor sit amet, at ius affert causae utroque. Semper iuvaret cum te. Utamur prompta pro no, pro ut fabellas torquatos. 
+	Te viderer invenire eum, duo definiebas disputationi ad. Ut pri admodum ponderum pertinax, facer minimum legendos vim id. Aeque verear 
+	reprehendunt an eam. Eos ea alia oblique, cu cum erat option. Has ut atqui verear voluptua, mel erat cetero repudiare ei, mel cu augue 
+	principes. Exerci doming reprimique ne duo. Noluisse abhorreant id eam, mei porro integre appetere an. Ius cu placerat erroribus salutatus.
+      </p>
+      <p class="item">
+	Lorem ipsum dolor sit amet, at ius affert causae utroque. Semper iuvaret cum te. Utamur prompta pro no, pro ut fabellas torquatos. 
+	Te viderer invenire eum, duo definiebas disputationi ad. Ut pri admodum ponderum pertinax, facer minimum legendos vim id. Aeque verear 
+	reprehendunt an eam. Eos ea alia oblique, cu cum erat option. Has ut atqui verear voluptua, mel erat cetero repudiare ei, mel cu augue 
+	principes. Exerci doming reprimique ne duo. Noluisse abhorreant id eam, mei porro integre appetere an. Ius cu placerat erroribus salutatus.
+      </p>
+      <a class="next" href="example.html">Load More</a>
+    </div>
+    <div class="footer">
+      <img src="facebook.png" />
+      <img src="twitter.png" />
+      <img src="youtube.png" />
+      <img src="google-plus.png" />
+      <img src="rss.png" />
+      <img src="skype.png" />
+      <img src="pinterest.png" />
+      <img src="instagram.png" />
+    </div>
+  </div>
+  <script src="../jmscroll.min.js"></script>
+  <script>
+    $('.content').jmscroll({
+      autoTrigger: true,
+      maxPages: 5,
+      loadingHtml: '<img src="loading.gif" alt="Loading" />',
+      loadingSpeed: 800,
+      contentSelector: '.item, a.next',
+      nextSelector:'a.next:last',
+      footerSelector:'.footer',
+      footerPadding:0,
+      callback:false
+    });
+  </script>
+</body>
+</html>
