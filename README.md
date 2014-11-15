@@ -14,5 +14,5 @@ You can find a simple working example in the example/ folder. The parameters you
 <b>footerSelector</b>: Footer selector<br />
 <b>footerPadding</b>: The distance from the footer at which to trigger the loading of the next set of content<br />
 <b>loadingContentDelay</b>: For testing purposes -or because you have a real fancy progress bar you want your visitors to see- you can define a delay (in milliseconds) to the Ajax response<br />
-<b>progressBarSpeed</b>: While loading (at least for loadingContentDelay milliseconds) a jQuery progress bar is shown with it's width animated in 100 steps every progressBarSpeed milliseconds<br /> 
+<b>progressBarSpeed</b>: While loading (at least for loadingContentDelay milliseconds) a jQuery progress bar is shown with it's width getting animated every progressBarSpeed milliseconds<br /> 
 <b>callback</b>: callback to be called at the end of each page load<br />
