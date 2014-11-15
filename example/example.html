@@ -17,11 +17,18 @@
       float:left;
       padding:10px 0 0 10px;
     }
-    .scroll-loading {
-      text-align:center;
+    .progress-bar {
+      width:100%;
+      height:10px;
+      background-color: #333333;
+      padding:0;
+      margin:0;
+      line-height:0;
     }
-    .scroll-loading img {
-      float:none;
+    .progress-bar span {
+      height:100%;
+      width:0;
+      background-color:#808080;
     }
   </style>
 </head>
@@ -71,14 +78,14 @@
   <script src="../jmscroll.min.js"></script>
   <script>
     $('.content').jmscroll({
-      autoTrigger: true,
-      maxPages: 5,
-      loadingHtml: '<img src="loading.gif" alt="Loading" />',
-      loadingSpeed: 800,
-      contentSelector: '.item, a.next',
+      autoTrigger:true,
+      maxPages:5,
+      contentSelector:'.item, a.next',
       nextSelector:'a.next:last',
       footerSelector:'.footer',
       footerPadding:0,
+      loadingContentDelay:5000,
+      progressBarSpeed:10,
       callback:false
     });
   </script>
