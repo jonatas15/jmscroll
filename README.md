@@ -18,7 +18,7 @@ You can find a simple working example in the example/ folder. The parameters you
 </tr>
 <tr>
  <td><b>autoTriggerUntil</b></td>
- <td>After the defined number of pages -which will be triggered automatically- a button click will trigger the loading of next pages. This is the one of the two ways you have to reach document's footer.</td>
+ <td>After the defined number of pages -which will be triggered automatically- a button click will trigger the loading of next pages. This is the one of the two ways you have to reach document's footer</td>
 </tr>
 <tr>
  <td><b>totalPages</b></td>
