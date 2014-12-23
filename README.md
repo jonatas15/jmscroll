@@ -7,6 +7,10 @@ A variation of Philip Klauzinski's excellent jscroll Plugin (<a href="http://jsc
 
 You can find a simple working example in the example/ folder. The parameters you can define are:
 
+<table>
+<tr><td><b>a1</b></td><td>a2</td></tr>
+</table>
+
 <ul>
 <li><b>debug</b>: TRUE or FALSE for logging in browser's console</li>
 <li><b>autoTrigger</b>: TRUE or FALSE for loading automatically or by clicking a button</li>
