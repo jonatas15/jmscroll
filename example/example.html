@@ -11,11 +11,13 @@
       width:510px;
       margin:0 auto;
       text-align:justify;
-      padding-top:20px;
     }
     img {
       float:left;
       padding:10px 0 0 10px;
+    }
+    .clear {
+      clear:both;
     }
     /*Don't Forget To Style Your Progress Bar*/
     .progress-bar {
@@ -63,7 +65,7 @@
 	reprehendunt an eam. Eos ea alia oblique, cu cum erat option. Has ut atqui verear voluptua, mel erat cetero repudiare ei, mel cu augue 
 	principes. Exerci doming reprimique ne duo. Noluisse abhorreant id eam, mei porro integre appetere an. Ius cu placerat erroribus salutatus.
       </p>
-      <a class="next" href="example.html">Load More</a>
+      <a class="next ui-btn ui-btn-b" href="example.html">Load More</a>
     </div>
     <div class="footer">
       <img src="facebook.png" />
@@ -74,17 +76,20 @@
       <img src="skype.png" />
       <img src="pinterest.png" />
       <img src="instagram.png" />
+      <div class="clear"></div>
     </div>
   </div>
-  <script src="../jmscroll.min.js"></script>
+  <script src="../jmscroll.js"></script>
   <script>
     $('.content').jmscroll({
+      debug:true,
       autoTrigger:true,
-      maxPages:5,
+      autoTriggerUntil:3,
+      totalPages:5,
       contentSelector:'.item, a.next',
       nextSelector:'a.next:last',
       footerSelector:'.footer',
-      footerPadding:0,
+      footerPadding:20,
       loadingContentDelay:5000,
       progressBarSpeed:10,
       callback:false

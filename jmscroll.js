@@ -5,8 +5,10 @@
 (function($) {
  $.jmscroll = {
   defaults: {
-    autoTrigger:true,
-    maxPages:5,
+    debug:false,
+    autoTrigger:false,
+    autoTriggerUntil:false,
+    totalPages:10,
     contentSelector:'',
     nextSelector:'a:last',
     footerSelector:'.footer',
@@ -22,7 +24,10 @@
   var _data = $event.data('jmscroll'),
       _userOptions = (typeof options === 'function') ? { callback: options } : options,
       _options = $.extend({}, $.jmscroll.defaults, _userOptions, _data || {}),
-      _nextHref = $.trim($event.find(_options.nextSelector).first().attr('href') + ' ' + _options.contentSelector);
+      _nextHref = $.trim($event.find(_options.nextSelector).first().attr('href') + ' ' + _options.contentSelector)
+      _$window = $(window),
+      _$document = $(document),
+      _$body = $('body');
 
   $event.data('jmscroll', $.extend({}, _data, {initialized: true, waiting: false, nextHref: _nextHref}));
   _wrapInnerContent();
@@ -41,31 +46,36 @@
       $next.wrap('<div class="scroll-next-wrapper" />').parent().hide();
     }
   }
-  
+
   function _setBindings() {
     var $next = $event.find(_options.nextSelector).first();
-    if(_options.autoTrigger) {
+    if(_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil-1 > 0)) { //Auto Trigger
       _nextWrap($next);
-      if($('body').height() <= $(window).height()) {
-	_observe();
+      _observe();
+      if(_options.autoTriggerUntil > 0) { //AutoTriggered Pages
+	_options.autoTriggerUntil--;
+	_debug('info', 'Auto Triggered Pages Remaining = ' + _options.autoTriggerUntil);
       }
-      $(window).unbind('.jmscroll').bind('scroll.jmscroll', function() {
-	return _observe();
-      });
-      _options.maxPages--;
+      if(_options.totalPages > 0) { //Total Pages
+	_options.totalPages--;
+	_debug('info', 'Total Pages Remaining = ' + _options.totalPages);
+      }
     }
-    else {
-      $(window).unbind('.jmscroll');
-      if(_options.maxPages-1 > 0) {
-	$next.bind('click.jmscroll', function() {
+    else { //Manual Trigger
+      _$document.off("scrollstop");
+      if(_options.totalPages-1 > 0) {
+	$next.on('click', function() {	  
 	  _nextWrap($next);
 	  _load();
-	  _options.maxPages--;
+	  _options.totalPages--;
+	  _debug('info', 'Total Pages Remaining = ' + _options.totalPages);
 	  return false;
 	});
       }
       else {
-	$('a.nextPage').hide(); //Hide Next Page Link
+	_debug('info', 'Total Pages Number Reached. Calling destroy()');
+	$(_options.nextSelector).remove(); //Remove Next Page Link
+	_destroy();
       }
     }
   }
@@ -73,11 +83,10 @@
   //Observe The Scroll Event In Order To Trigger The Next Load
   function _observe() {
     _wrapInnerContent();
-    $(document).on("scrollstop", function () {
-      if(_options.maxPages > 0) {
-	if(!$event.data('jmscroll').waiting && $(window).scrollTop() + $(window).height() > $(document).height() - $(_options.footerSelector).outerHeight() - _options.footerPadding) {
-	  return _load();
-	}
+    _$document.on("scrollstop", function () {
+      if(!$event.data('jmscroll').waiting && _$window.scrollTop() + _$window.height() > _$document.height() - $(_options.footerSelector).outerHeight() - _options.footerPadding) {
+	_debug('info', _options.footerPadding + 'px From \'' + _options.footerSelector + '\'. Calling load()');
+	return _load();
       }
     });
   }
@@ -91,10 +100,13 @@
     $inner.append('<div class="scroll-added" />').children('.scroll-added').last().html('<div class="progress-bar"><span></span></div>');
 
     _progressBar();    
-    
+
     return $event.animate({scrollTop: $inner.outerHeight()}, _options.loadingContentDelay, function() {
       $inner.find('div.scroll-added').last().load(data.nextHref, function(response, status, xhr) {
-      if(status === 'error') return _destroy();
+      if(status === 'error') {
+	_debug('error', 'Error Status Returned From load(). Calling destroy()');
+	return _destroy();
+      }
       var $next = $(this).find(_options.nextSelector).first();
       data.waiting = false;
       data.nextHref = $next.attr('href') ? $.trim($next.attr('href') + ' ' + _options.contentSelector) : false;
@@ -120,6 +132,7 @@
   function _checkNextHref(data) {
     data = data || $event.data('jmscroll');
     if(!data || !data.nextHref) {
+      _debug('info', 'No More Data. Calling destroy()');
       _destroy();
       return false;
     }
@@ -128,26 +141,47 @@
       return true;
     }
   }
-   
+
   function _destroy() {
-    return $(window).unbind('.jmscroll')
-    .removeData('jmscroll')
-    .find('.scroll-wrapper').children().unwrap()
-    .filter('.scroll-added').children().unwrap();
-  }        
+    return _$document.removeData('jmscroll')
+      .find('.scroll-wrapper').children().unwrap()
+      .filter('.scroll-added').children().unwrap();
+  }
+
+  //Safe Console Debug
+  function _debug(method) {
+    if(_options.debug && typeof console === 'object' && (typeof method === 'object' || typeof console[method] === 'function')) {
+      if(typeof method === 'object') {
+	var args = [];
+	for(var sMethod in method) {
+	  if(typeof console[sMethod] === 'function') {
+	    args = (m[sMethod].length) ? m[sMethod] : [m[sMethod]];
+	    console[sMethod].apply(console, args);
+	  }
+	  else {
+	    console.log.apply(console, args);
+	  }
+	}
+      }
+      else {
+	console[method].apply(console, Array.prototype.slice.call(arguments, 1));  
+      }
+    }
+  }  
 
   $.extend($event.jmscroll, { //Expose API Methods
     destroy: _destroy
   });
   return $event;
  };
- 
- $.fn.jmscroll = function(m) {
+
+ //Define the jmScroll Plugin Method
+ $.fn.jmscroll = function(method) {
     return this.each(function() {
       var $this = $(this),
-      data = $this.data('jmscroll');
+	  data = $this.data('jmscroll');
       if(data && data.initialized) return;
-      var jmscroll = new jmScroll($this, m);
+      var jmscroll = new jmScroll($this, method);
     });
  };
 })(jQuery);
