@@ -8,8 +8,10 @@ A variation of Philip Klauzinski's excellent jscroll Plugin (<a href="http://jsc
 You can find a simple working example in the example/ folder. The parameters you can define are:
 
 <ul>
+<li><b>debug</b>: TRUE or FALSE for logging in browser's console</li>
 <li><b>autoTrigger</b>: TRUE or FALSE for loading automatically or by clicking a button</li>
-<li><b>maxPages</b>: If you want to reach document's footer it's wise to define a maximum number of pages</li>
+<li><b>autoTriggerUntil</b>: After the defined number of pages -which will be triggered automatically- a button click will be needed to load more pages. It's one of the 2 ways you have to reach document's footer.</li>
+<li><b>totalPages</b>: The other one is the totalPages limit which defines the maximum page number (auto or manually triggered)</li>
 <li><b>contentSelector</b>: Selector for loading only part(s) of the response</li>
 <li><b>nextSelector</b>: Selector to find the link which contains the href pointing to the next set of content</li>
 <li><b>footerSelector</b>: Footer selector</li>
