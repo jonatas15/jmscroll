@@ -48,7 +48,10 @@ You can find a simple working example in the example/ folder. The parameters you
  <td><b>loadingContentDelay</b></td>
  <td>For testing purposes -or because you have a real fancy progress bar you want your visitors to see- you can define a delay (in milliseconds) to the Ajax response</td>
 </tr>
-
+<tr>
+ <td><b>progressType</b></td>
+ <td>html | spinner | bar [For Each Options There Are Extra Parameters]</td>
+</tr>
 <tr>
  <td><b>progressType='bar'</b></td>
  <td>
