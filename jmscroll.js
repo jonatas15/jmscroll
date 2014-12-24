@@ -13,6 +13,7 @@
     nextSelector:'a:last',
     footerSelector:'.footer',
     footerPadding:0,
+    footerVisible:true,
     loadingContentDelay:1000,
     progressBarSpeed:10,
     callback:false
@@ -30,6 +31,7 @@
       _$body = $('body');
 
   $event.data('jmscroll', $.extend({}, _data, {initialized: true, waiting: false, nextHref: _nextHref}));
+  if(_options.autoTrigger === true && _options.footerVisible === false) $(_options.footerSelector).hide();
   _wrapInnerContent();
   _setBindings();
 
@@ -49,7 +51,7 @@
 
   function _setBindings() {
     var $next = $event.find(_options.nextSelector).first();
-    if(_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil-1 > 0)) { //Auto Trigger
+    if(_options.autoTrigger && (_options.autoTriggerUntil === false || _options.autoTriggerUntil-1 > 0) && _options.totalPages-1 > 0) { //Auto Trigger
       _nextWrap($next);
       _observe();
       if(_options.autoTriggerUntil > 0) { //AutoTriggered Pages
@@ -62,9 +64,10 @@
       }
     }
     else { //Manual Trigger
-      _$document.off("scrollstop");
+      _$document.off("scrollstop");  
+      if(_options.footerVisible === false) $(_options.footerSelector).show();
       if(_options.totalPages-1 > 0) {
-	$next.on('click', function() {	  
+	$next.on('click', function() {
 	  _nextWrap($next);
 	  _load();
 	  _options.totalPages--;
@@ -95,7 +98,6 @@
   function _load() {
     var $inner = $event.find('div.scroll-wrapper').first(),
     data = $event.data('jmscroll');
-    
     data.waiting = true;
     $inner.append('<div class="scroll-added" />').children('.scroll-added').last().html('<div class="progress-bar"><span></span></div>');
 
