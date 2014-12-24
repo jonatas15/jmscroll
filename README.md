@@ -90,11 +90,11 @@ You can find a simple working example in the example/ folder. The parameters you
  <td>
   <table>
    <tr>
-    <td colspan="2">If none of the above suits your needs, you can go with the pure js progress bar (a span inside a full width div and animation of span's width to fill all the container)</td>
+    <td colspan="2">If none of the above suits your needs, you can go with the pure js progress bar: a span inside a full width div and animation of span's width to fill all the container</td>
    </tr>
    <tr>
     <td><b>progressBarSpeed</b></td>
-    <td>While loading (at least for loadingContentDelay milliseconds) a jQuery progress bar is shown with it's width getting animated every progressBarSpeed milliseconds</td>
+    <td>Milliseconds between each step of the animation. Old mobile browsers may have problems if you animate in many steps or too quickly. Use sparingly.</td>
    </tr>
   </table>
  </td>
