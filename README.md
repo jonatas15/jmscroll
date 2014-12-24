@@ -41,6 +41,10 @@ You can find a simple working example in the example/ folder. The parameters you
  <td>The distance from the footer at which to trigger the loading of the next set of content</td>
 </tr>
 <tr>
+ <td><b>footerVisible</b></td>
+ <td>Set this parameter to FALSE to hide footer while auto triggering</td>
+</tr>
+<tr>
  <td><b>loadingContentDelay</b></td>
  <td>For testing purposes -or because you have a real fancy progress bar you want your visitors to see- you can define a delay (in milliseconds) to the Ajax response</td>
 </tr>
