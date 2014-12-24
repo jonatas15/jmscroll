@@ -12,6 +12,10 @@
       margin:0 auto;
       text-align:justify;
     }
+    .ui-content {
+      overflow:visible;
+      overflow-x:visible;
+    }
     img {
       float:left;
       padding:10px 0 0 10px;
@@ -19,7 +23,22 @@
     .clear {
       clear:both;
     }
-    /*Don't Forget To Style Your Progress Bar*/
+    /*If animationType='html' Style Your HTML Content*/
+    .progress-html {
+      text-align:center;
+    }
+    .progress-html img {
+      float:none;
+      width:100px;
+      margin:0 auto;
+      padding:0;
+    }
+    /*If animationType='spinner' You May Need Some Extra Styles*/
+    .progress-spinner {
+      position:relative;
+      padding:40px 0;
+    }
+    /*If animationType='bar' Style Your Bar Elements*/
     .progress-bar {
       width:100%;
       height:10px;
@@ -79,6 +98,8 @@
       <div class="clear"></div>
     </div>
   </div>
+  <!--You Can Safely Use The Minified Versions Too-->
+  <script src="../spin/spin.js"></script>
   <script src="../jmscroll.js"></script>
   <script>
     $('.content').jmscroll({
@@ -92,8 +113,26 @@
       footerPadding:20,
       footerVisible:true,
       loadingContentDelay:5000,
-      progressBarSpeed:10,
-      callback:false
+      callback:false,
+      /*** CHOOSE ONE OF THE AVAILABLE OPTIONS : html | spinner | bar ***/
+      progressType:'spinner',
+      /*
+       * If progressType=='html' You Can Use HTML Markup Showing Something While The 
+       * Content Is Loading. A .gif Like The One I Use Here Is Not A Good Idea Though, 
+       * Since We're Interested In Mobile Devices and .gif Compatibility Is Poor For Android 
+       */
+      loadingHtml:'<img src="loading-icon.gif" />',
+      /*
+       * If progressType=='spinner' You Can Define Some Extra Parameters For The Spinner
+       * Documentation: http://fgnass.github.io/spin.js/ [ All CamelCase Prefixed With spinner ]
+       */
+      spinnerLength:15,
+      spinnerWidth:5,
+      spinnerRadius:15, /*et.al.*/
+      /*
+       * If progressType=='bar' You Can Define The Speed For The Pure js Progress Bar
+       */
+      progressBarSpeed:10
     });
   </script>
 </body>
