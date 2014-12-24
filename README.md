@@ -50,7 +50,7 @@ You can find a simple working example in the example/ folder. The parameters you
 </tr>
 <tr>
  <td><b>progressType</b></td>
- <td>html | spinner | bar <i>[For Each Options There Are Extra Parameters] :</i></td>
+ <td>html | spinner | bar <i>[For Each Option There Are Extra Parameters] :</i></td>
 </tr>
 <tr>
  <td><b>progressType='html'</b></td>
