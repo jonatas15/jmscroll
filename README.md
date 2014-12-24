@@ -48,10 +48,22 @@ You can find a simple working example in the example/ folder. The parameters you
  <td><b>loadingContentDelay</b></td>
  <td>For testing purposes -or because you have a real fancy progress bar you want your visitors to see- you can define a delay (in milliseconds) to the Ajax response</td>
 </tr>
+
 <tr>
- <td><b>progressBarSpeed</b></td>
- <td>While loading (at least for loadingContentDelay milliseconds) a jQuery progress bar is shown with it's width getting animated every progressBarSpeed milliseconds</td>
-</tr>
+ <td><b>progressType='bar'</b></td>
+ <td>
+  <table>
+   <tr>
+    <td><b>progressBarSpeed</b></td>
+    <td>While loading (at least for loadingContentDelay milliseconds) a jQuery progress bar is shown with it's width getting animated every progressBarSpeed milliseconds</td>
+   </tr>
+  </table>
+ </td>
+</tr> 
+ 
+
+
+
 <tr>
  <td><b>callback</b></td>
  <td>callback to be called at the end of each page load</td>
