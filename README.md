@@ -90,7 +90,7 @@ You can find a simple working example in the example/ folder. The parameters you
  <td>
   <table>
    <tr>
-    <td colspan="2">If none of the above suits your needs, you can go with the pure js progress bar: a span inside a full width div and animation of span's width to fill all the container</td>
+    <td colspan="2">If none of the above suits your needs, you can go with the pure js progress bar: a span inside a full width div which is animated (in steps) to fill all the container</td>
    </tr>
    <tr>
     <td><b>progressBarSpeed</b></td>
