@@ -101,6 +101,6 @@ You can find a simple working example in the example/ folder. The parameters you
 </tr>
 <tr>
  <td><b>callback</b></td>
- <td>callback to be called at the end of each page load.</td>
+ <td>Callback function to be called at the end of each page load.</td>
 </tr>
 </table>
