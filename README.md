@@ -53,6 +53,41 @@ You can find a simple working example in the example/ folder. The parameters you
  <td>html | spinner | bar [For Each Options There Are Extra Parameters]</td>
 </tr>
 <tr>
+ <td><b>progressType='html'</b></td>
+ <td>
+  <table>
+   <tr>
+    <td><b>loadingHtml</b></td>
+    <td>HTML Markup to show while loading next (for example a loading .gif, though it is not a good idea due to poor mobile browser copatibility)</td>
+   </tr>
+  </table>
+ </td>
+</tr>
+<tr>
+ <td><b>progressType='spinner'</b></td>
+ <td>
+  <table>
+   <tr>
+   <td colspan="2">
+    For much better compatibility you can try fgnass' spin.js (http://fgnass.github.io/spin.js/). You can define all the available parameters with names the names of fgnass prefixed with spinner (camel case). For example:
+   </td>
+   </tr>
+   <tr>
+    <td><b>spinnerLines</b></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td><b>spinnerLength</b></td>
+    <td></td>
+   </tr>
+   <tr>
+    <td><b>spinnerWidth</b></td>
+    <td></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+<tr>
  <td><b>progressType='bar'</b></td>
  <td>
   <table>
@@ -62,11 +97,7 @@ You can find a simple working example in the example/ folder. The parameters you
    </tr>
   </table>
  </td>
-</tr> 
- 
-
-
-
+</tr>
 <tr>
  <td><b>callback</b></td>
  <td>callback to be called at the end of each page load</td>
