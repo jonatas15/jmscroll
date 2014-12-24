@@ -42,7 +42,7 @@ You can find a simple working example in the example/ folder. The parameters you
 </tr>
 <tr>
  <td><b>footerVisible</b></td>
- <td>Set this parameter to FALSE to hide footer while auto triggering</td>
+ <td>Set this parameter to FALSE in order to hide footer while auto triggering</td>
 </tr>
 <tr>
  <td><b>loadingContentDelay</b></td>
