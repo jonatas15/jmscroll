@@ -107,6 +107,8 @@
       $inner.find('div.scroll-added').last().load(data.nextHref, function(response, status, xhr) {
       if(status === 'error') {
 	_debug('error', 'Error Status Returned From load(). Calling destroy()');
+	if(_options.footerVisible === false) $(_options.footerSelector).show();
+	$('.progress-bar').hide();
 	return _destroy();
       }
       var $next = $(this).find(_options.nextSelector).first();
@@ -135,6 +137,7 @@
     data = data || $event.data('jmscroll');
     if(!data || !data.nextHref) {
       _debug('info', 'No More Data. Calling destroy()');
+      if(_options.footerVisible === false) $(_options.footerSelector).show();
       _destroy();
       return false;
     }
