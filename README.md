@@ -68,7 +68,7 @@ You can find a simple working example in the example/ folder. The parameters you
  <td>
   <table>
    <tr>
-   <td colspan="2">For better compatibility you can try fgnass' spin.js (http://fgnass.github.io/spin.js/). You can define all the available parameters with names the names of fgnass prefixed with spinner (camel case). For example:</td>
+   <td colspan="2">For better compatibility you can try fgnass' spin.js (http://fgnass.github.io/spin.js/). You can define all the available parameters following the names of fgnass prefixed with 'spinner' (camel case). For example:</td>
    </tr>
    <tr>
     <td><b>spinnerLines</b></td>
