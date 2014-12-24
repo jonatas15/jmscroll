@@ -50,7 +50,7 @@ You can find a simple working example in the example/ folder. The parameters you
 </tr>
 <tr>
  <td><b>progressType</b></td>
- <td>html | spinner | bar [For Each Options There Are Extra Parameters]</td>
+ <td>html | spinner | bar <i>[For Each Options There Are Extra Parameters] :</i></td>
 </tr>
 <tr>
  <td><b>progressType='html'</b></td>
@@ -68,21 +68,19 @@ You can find a simple working example in the example/ folder. The parameters you
  <td>
   <table>
    <tr>
-   <td colspan="2">
-    For much better compatibility you can try fgnass' spin.js (http://fgnass.github.io/spin.js/). You can define all the available parameters with names the names of fgnass prefixed with spinner (camel case). For example:
-   </td>
+   <td colspan="2">For better compatibility you can try fgnass' spin.js (http://fgnass.github.io/spin.js/). You can define all the available parameters with names the names of fgnass prefixed with spinner (camel case). For example:</td>
    </tr>
    <tr>
     <td><b>spinnerLines</b></td>
-    <td></td>
+    <td>The number of lines to draw</td>
    </tr>
    <tr>
     <td><b>spinnerLength</b></td>
-    <td></td>
+    <td>The length of each line (in px)</td>
    </tr>
    <tr>
     <td><b>spinnerWidth</b></td>
-    <td></td>
+    <td>The line thickness (in px)</td>
    </tr>
   </table>
  </td>
@@ -92,6 +90,7 @@ You can find a simple working example in the example/ folder. The parameters you
  <td>
   <table>
    <tr>
+    <td colspan="2">If none of the above suits your needs, you can go with the pure js progress bar (a span inside a full width div and animation of span's width to fill all the container)</td>
     <td><b>progressBarSpeed</b></td>
     <td>While loading (at least for loadingContentDelay milliseconds) a jQuery progress bar is shown with it's width getting animated every progressBarSpeed milliseconds</td>
    </tr>
